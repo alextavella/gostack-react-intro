@@ -11,7 +11,9 @@ export default class TechList extends Component {
   };
 
   handleInputChange = e => {
-    this.setState({ newTech: e.target.value });
+    this.setState({
+      newTech: e.target.value
+    });
   }
 
   handleSubmit = e => {
@@ -23,12 +25,21 @@ export default class TechList extends Component {
     });
   }
 
+  handleDelete = tech => {
+    this.setState({
+      techs: this.state.techs.filter(t => t != tech)
+    })
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <ul>
           {this.state.techs.map((tech, index) =>
-            <li key={index}>{tech}</li>
+            <li key={index}>
+              {tech}
+              <button type="button" onClick={() => this.handleDelete(tech)}>Remover</button>
+            </li>
           )}
         </ul>
         <h2>{this.state.newTech}</h2>
