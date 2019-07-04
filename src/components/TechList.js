@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TechItem from './TechItem';
+
 export default class TechList extends Component {
   state = {
     newTech: '',
@@ -36,15 +38,15 @@ export default class TechList extends Component {
       <form onSubmit={this.handleSubmit}>
         <ul>
           {this.state.techs.map((tech, index) =>
-            <li key={index}>
-              {tech}
-              <button type="button" onClick={() => this.handleDelete(tech)}>Remover</button>
-            </li>
+            <TechItem
+              key={index}
+              tech={tech}
+              onDelete={() => this.handleDelete(tech)} />
           )}
         </ul>
         <h2>{this.state.newTech}</h2>
         <input type="text" onChange={this.handleInputChange} value={this.state.newTech} />
-        <button type="submit">Adicionar</button>
+        <button type="submit">Add</button>
       </form>
     );
   }
