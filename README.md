@@ -19,6 +19,7 @@ npm i -D @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli w
 npm i -D style-loader css-loader
 npm i -D file-loader
 npm i -D @babel/plugin-proposal-class-properties
+npm i -D prop-types
 ```
 
 Mode Dependencies
