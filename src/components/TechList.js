@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './TechList.css';
 import TechItem from './TechItem';
 
 export default class TechList extends Component {
@@ -54,7 +55,14 @@ export default class TechList extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <ul>
+        <div className="taskHeader">
+          <h2>{this.state.newTech}</h2>
+          <div className="taskHeaderInput">
+            <input type="text" onChange={this.handleInputChange} value={this.state.newTech} placeholder="Tech Name" />
+            <button type="submit">Add</button>
+          </div>
+        </div>
+        <ul className="taskList">
           {this.state.techs.map((tech, index) =>
             <TechItem
               key={index}
@@ -62,9 +70,6 @@ export default class TechList extends Component {
               onDelete={() => this.handleDelete(tech)} />
           )}
         </ul>
-        <h2>{this.state.newTech}</h2>
-        <input type="text" onChange={this.handleInputChange} value={this.state.newTech} />
-        <button type="submit">Add</button>
       </form>
     );
   }

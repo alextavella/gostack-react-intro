@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 function TechItem({ tech, onDelete }) {
   return (
-    <li>
-      {tech}
-      <button type="button" onClick={onDelete}>Remove</button>
+    <li className="taskItem">
+      <div className="taskItem-name">{tech}</div>
+      <div className="taskItem-button">
+        <button type="button" onClick={onDelete}>Remove</button>
+      </div>
     </li>
   );
 }

@@ -1,5 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #7159c1;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font: 14px Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+div#app {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.main {
+  width: 100%;
+}
+
+.main header {
+  text-align: center;
 }
