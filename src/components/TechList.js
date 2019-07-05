@@ -7,12 +7,28 @@ export default class TechList extends Component {
 
   state = {
     newTech: '',
-    techs: [
-      'Node.js',
-      'ReactJS',
-      'React Native'
-    ]
+    techs: []
   };
+
+  // Executed when show on screen
+  componentDidMount() {
+    const techs = localStorage.getItem('techs')
+
+    if (techs) {
+      this.setState({ techs: JSON.parse(techs) });
+    }
+  }
+
+  // Executed when there are changes on props or state
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.techs !== this.state.techs) {
+      localStorage.setItem('techs', JSON.stringify(this.state.techs));
+    }
+  }
+
+  // Executed when exit on screen
+  componentWillUnmount() {
+  }
 
   handleInputChange = e => {
     this.setState({
